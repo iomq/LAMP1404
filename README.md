@@ -1,4 +1,4 @@
 # DEVLAMP (Ubuntu 14.04)
-# 0.0.0.15
+# 0.0.0.16
 
 Docker: DEVLAMP1404 (debs: no config)
