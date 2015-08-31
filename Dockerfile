@@ -19,7 +19,7 @@ RUN apt-get -y install graphicsmagick graphicsmagick-imagemagick-compat language
 RUN apt-get -y install apache2 libapache2-mod-php5 php5-mysql php5-gd php5-mcrypt php5-curl php5-xsl
 RUN apt-get -y install php5-cli
 RUN apt-get -y install php5-xdebug
-RUN echo "0.0.0.22" > /etc/iomq_version
+RUN echo "0.1.20150831.0" > /etc/iomq_version
 RUN apt-get update -qq && apt-get -y dselect-upgrade
 
 ADD https://phar.phpunit.de/phpunit.phar /usr/local/bin/phpunit
@@ -27,3 +27,34 @@ ADD https://phar.phpunit.de/phpcpd.phar /usr/local/bin/phpcpd
 ADD https://phar.phpunit.de/phpdcd.phar /usr/local/bin/phpdcd
 ADD https://phar.phpunit.de/phploc.phar /usr/local/bin/phploc
 RUN chmod a+rx /usr/local/bin/php*
+
+# Add scripts and configuration
+ADD start-apache2.sh /start-apache2.sh
+ADD start-mysqld.sh /start-mysqld.sh
+ADD run.sh /run.sh
+ADD mysql_admin.sh /mysql_admin.sh
+ADD my.cnf /etc/mysql/conf.d/my.cnf
+ADD dockerprofile.sh /etc/profile.d/dockerprofile.sh
+ADD create_mysql_admin_user.sh /create_mysql_admin_user.sh
+ADD supervisord-apache2.conf /etc/supervisor/conf.d/supervisord-apache2.conf
+ADD supervisord-mysqld.conf /etc/supervisor/conf.d/supervisord-mysqld.conf
+ADD apache_php_admin.sh /apache_php_admin.sh
+ADD local.txt /var/lib/locales/supported.d/local
+
+RUN chmod 755 /*.sh
+
+# Remove pre-installed database
+RUN rm -rf /var/lib/mysql/*
+
+# Add Apache-Mod
+RUN a2enmod rewrite
+
+# Add PHP-Mod
+#BUG beim Install von mcyrpt
+RUN php5enmod mcrypt
+
+EXPOSE 80
+EXPOSE 3306
+EXPOSE 8080
+EXPOSE 9000
+CMD ["/run.sh"]
