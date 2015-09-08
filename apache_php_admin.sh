@@ -21,7 +21,7 @@ APACHE_GROUP=${APACHE_GROUP:-"www-data"}
 
 if [[ $APACHE_MYUSER != "" ]]; then
 APACHE_USERID=${APACHE_USERID:-"1000"}
-useradd --uid $APACHE_USERID --home /home/$APACHE_USER -m --shell /bin/false $APACHE_USER
+useradd --uid $APACHE_USERID --home /home/$APACHE_USER -m --shell /bin/bash $APACHE_USER
 
 checkhomelamp=`grep homelamp1404 /home/$APACHE_USER/.bashrc 2>&1`
 if [[ $checkhomelamp == "" ]]; then
