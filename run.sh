@@ -10,6 +10,8 @@ mkdir -p $DOCKER_DIR
 #APACHE-PHP
 /apache_php_admin.sh
 ln -s $DOCKER_DIR/conf/php/99-docker.ini /etc/php5/apache2/conf.d/99-docker.ini
+#CLI-PHP
+ln -s $DOCKER_DIR/conf/php/99-docker-cli.ini /etc/php5/cli/conf.d/99-docker-cli.ini
 
 #ssmtp
 mv /etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf.org
