@@ -16,11 +16,12 @@ RUN apt-get -y install supervisor
 RUN apt-get -y install ssmtp
 RUN apt-get -y install mysql-server mysql-client
 RUN apt-get -y install graphicsmagick graphicsmagick-imagemagick-compat language-pack-de gettext intltool catdoc htmldoc
-RUN apt-get -y install apache2 libapache2-mod-php5 php5-mysql php5-gd php5-mcrypt php5-curl php5-xsl
+RUN apt-get -y install apache2 libapache2-mod-php5 php5-mysql php5-gd php5-mcrypt php5-curl php5-xsl 
 RUN apt-get -y install php5-cli
 RUN apt-get -y install php5-xdebug
 RUN apt-get -y install php5-sqlite
-RUN echo "0.1.20151121.0" > /etc/iomq_version
+RUN apt-get -y install cron
+RUN echo "0.2.20151202.0" > /etc/iomq_version
 RUN apt-get update -qq && apt-get -y dselect-upgrade
 
 ADD https://phar.phpunit.de/phpunit-old.phar /usr/local/bin/phpunit
@@ -41,6 +42,10 @@ ADD supervisord-apache2.conf /etc/supervisor/conf.d/supervisord-apache2.conf
 ADD supervisord-mysqld.conf /etc/supervisor/conf.d/supervisord-mysqld.conf
 ADD apache_php_admin.sh /apache_php_admin.sh
 ADD local.txt /var/lib/locales/supported.d/local
+ADD zzzdockerwebsite.conf /tmp/zzzdockerwebsite.conf
+ADD iomqwebsite.tar.gz /tmp/iomqwebsite.tar.gz
+ADD ssmtp-mailcatcher.sample /tmp/ssmtp-mailcatcher.sample
+ADD crond.sample /tmp/crond.sample
 
 RUN chmod 755 /*.sh
 
