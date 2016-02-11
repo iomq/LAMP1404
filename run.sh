@@ -48,7 +48,7 @@ touch $DOCKER_DIR/conf/bashrc/homelamp1404.txt
 mkdir -p $DOCKER_DIR/opt/
 
 #external bin-Dir to /usr/local/php/bin/
-mkdir -p $DOCKER_DIR/bin/
+mkdir -p $DOCKER_DIR/bin/1404/
 mkdir -p /usr/local/php/bin/
 cd /usr/local/php/bin/
 find $DOCKER_DIR/bin/1404/* -type f -name '*' -exec ln -s {} \;
