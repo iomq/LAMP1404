@@ -52,6 +52,8 @@ mkdir -p $DOCKER_DIR/bin/1404/
 mkdir -p /usr/local/php/bin/
 cd /usr/local/php/bin/
 find $DOCKER_DIR/bin/1404/* -type f -name '*' -exec ln -s {} \;
+cd /usr/local/bin/
+find $DOCKER_DIR/bin/1404/* -type f -name '*' -exec ln -s {} \;
 
 #nsenter4docker
 NSENTER_USER=${NSENTER_USER:-"holger"}
