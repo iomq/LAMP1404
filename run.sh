@@ -18,11 +18,11 @@ mkdir -p $DOCKER_DIR/conf/apache/sites-available_1404/
 mkdir -p $DOCKER_DIR/conf/apache/sites-enabled_1404/
 mkdir -p $DOCKER_DIR/conf/php/
 #WEB-PHP
-touch $DOCKER_DIR/conf/php/99-docker.ini
-ln -s $DOCKER_DIR/conf/php/99-docker.ini /etc/php5/apache2/conf.d/99-docker.ini
+touch $DOCKER_DIR/conf/php/99-docker_1404.ini
+ln -s $DOCKER_DIR/conf/php/99-docker_1404.ini /etc/php5/apache2/conf.d/99-docker.ini
 #CLI-PHP
-touch $DOCKER_DIR/conf/php/99-docker-cli.ini
-ln -s $DOCKER_DIR/conf/php/99-docker-cli.ini /etc/php5/cli/conf.d/99-docker-cli.ini
+touch $DOCKER_DIR/conf/php/99-docker-cli_1404.ini
+ln -s $DOCKER_DIR/conf/php/99-docker-cli_1404.ini /etc/php5/cli/conf.d/99-docker-cli.ini
 /apache_php_admin.sh
 
 #ssmtp
