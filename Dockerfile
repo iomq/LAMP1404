@@ -7,7 +7,7 @@ ENV DOCKER_DIR /docker
 ENV DOCKERXDEBUG YES
 
 # Install packages
-RUN echo "0.5.20161006.1" > /etc/iomq_version
+RUN echo "0.5.20161026.0" > /etc/iomq_version
 RUN apt-get update
 RUN apt-get -y dselect-upgrade
 RUN apt-get -y install apt-utils dialog
@@ -23,7 +23,6 @@ RUN apt-get -y install php5-xdebug
 RUN apt-get -y install php5-sqlite
 RUN apt-get -y install cron
 RUN apt-get -y install pv
-RUN echo "0.5.20161006.1" > /etc/iomq_version
 RUN apt-get update -qq && apt-get -y dselect-upgrade
 
 ADD https://phar.phpunit.de/phpunit-old.phar /usr/local/bin/phpunit
