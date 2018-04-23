@@ -9,7 +9,7 @@ external config (/docker/conf/)
 
 * Ubuntu 14.04
 * Apache 2.4.7
-* MySQL 5.5.59
+* MySQL 5.5.60
 * PHP 5.5.9 (mod-php, xdebug, cli, phpunit, composer)
 * mail: ssmtp (docker pull iomq/mailcatcher)
 * cron.d-Support
