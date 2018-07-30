@@ -1,5 +1,5 @@
 # DEVLAMP (Ubuntu 14.04)
-# 0.6.20180716.0
+# 0.6.20180730.0
 
 Docker: I/O :: MQ - PHPDEV-Ubuntu 14.04
 
@@ -9,7 +9,7 @@ external config (/docker/conf/)
 
 * Ubuntu 14.04
 * Apache 2.4.7
-* MySQL 5.5.60
+* MySQL 5.5.61
 * PHP 5.5.9 (mod-php, xdebug, cli, phpunit, composer)
 * mail: ssmtp (docker pull iomq/mailcatcher)
 * cron.d-Support
