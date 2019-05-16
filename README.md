@@ -1,9 +1,12 @@
 # DEVLAMP (Ubuntu 14.04)
-# 0.6.20190425.0
+# 0.6.20190516.0
 
 Docker: I/O :: MQ - PHPDEV-Ubuntu 14.04
 
 **Docker for PHP Developers**
+
+Ubuntu 14.04 (Trusty Tahr) reaches End of Life on April 25 2019
+
 
 external config (/docker/conf/)
 
